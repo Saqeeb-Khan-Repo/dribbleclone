@@ -1,0 +1,100 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 32px 16px;
+  background: whitesmoke;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  box-shadow: 0 0 50px 2px rgba(128, 128, 128, 0.488);
+}
+
+/* Logo */
+.footer_logo {
+  width: 120px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Top list from listItem */
+footer > ul:first-of-type {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer > ul:first-of-type li {
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Social icons row */
+.footer_social {
+  display: flex;
+  gap: 16px;
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+.footer_social svg {
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.footer_social svg:hover {
+  color: #f472b6;
+  transform: translateY(-1px);
+}
+
+/* Bottom links (About, Careers, Contact) */
+footer > ul:last-of-type {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer > ul:last-of-type li {
+  list-style: none;
+}
+
+footer > ul:last-of-type a {
+  color: rgba(0, 0, 0, 0.55);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+footer > ul:last-of-type a:hover {
+  text-decoration: underline;
+}
+
+/* Copyright */
+.footer_copy {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6c6d6ed3;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  footer {
+    padding: 24px 12px;
+    gap: 12px;
+  }
+}
