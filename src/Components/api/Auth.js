@@ -1,5 +1,5 @@
 // api/auth.js
-const BASE_URL = "http://localhost:3000"; // change to your backend port
+const BASE_URL = "https://dribblebackend-2ddd.onrender.com/"; // change to your backend port
 
 export async function registerRequest(payload) {
   const res = await fetch(`${BASE_URL}/api/register`, {
