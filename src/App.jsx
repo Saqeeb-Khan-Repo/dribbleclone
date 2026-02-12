@@ -27,14 +27,13 @@ const App = () => {
         <Route
           path="/"
           element={
-            // <ProtectedRoute>
-            // </ProtectedRoute>
+            <ProtectedRoute>
               <Layout
                 onHamburgerClick={toggleSidebar}
                 isSidebarOpen={isSidebarOpen}
                 onCloseSidebar={closeSidebar}
               />
-            
+            </ProtectedRoute>
           }
         >
           <Route

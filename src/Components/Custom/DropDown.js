@@ -1,11 +1,11 @@
 // DropDown.js
 export const NAV_CONFIG = [
   {
-    label: "Explore",
+    label: "Latest",
     items: ["Inspiration", "Latest Shots", "Top Creators", "Design Resources"],
   },
   {
-    label: "Hire Talent",
+    label: "User can Do",
     items: [
       "Post a Job",
       "Browse Designers",
@@ -14,11 +14,11 @@ export const NAV_CONFIG = [
     ],
   },
   {
-    label: "Get Hired",
+    label: "FInd",
     items: ["Find Work", "Upload Portfolio", "Job Alerts", "Career Resources"],
   },
   {
-    label: "Community",
+    label: "Support",
     items: ["Discussions", "Events", "Meetups", "Creator Stories"],
   },
 ];
