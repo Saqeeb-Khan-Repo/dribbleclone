@@ -266,10 +266,30 @@ body {
 }
 .success {
   text-align: center;
-  color: white;
-  background: greenyellow;
-  border: 1px solid gray;
-  border-radius: 20px;
-  padding: 10px;
-  margin: auto;
+  color: #14532d;
+  background: #bbf7d0;
+  border: 1px solid #16a34a;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 0 auto 16px;
+  max-width: 320px;
+  font-size: 0.9rem;
+}
+
+.error {
+  text-align: center;
+  color: #7f1d1d;
+  background: #fecaca;
+  border: 1px solid #dc2626;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 0 auto 16px;
+  max-width: 320px;
+  font-size: 0.9rem;
+}
+
+.login_error {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #b91c1c;
 }

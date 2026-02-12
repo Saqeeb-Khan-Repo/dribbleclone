@@ -9,21 +9,40 @@ const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
+  const [popup, setPopup] = useState({ type: "", message: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setPopup({ type: "", message: "" });
+
     try {
       const data = await loginRequest(form); // { message, success, accessKey }
       login(data); // save token + role in context
-      navigate("/"); // redirect to home page
+
+      setPopup({ type: "success", message: "Login successful!" });
+      setTimeout(() => {
+        setPopup({ type: "", message: "" });
+        navigate("/"); // redirect to home page
+      }, 1500);
     } catch (err) {
-      setError(err.message);
+      const msg = err.message || "Login failed. Please try again.";
+      setError(msg);
+      setPopup({ type: "error", message: msg });
+      setTimeout(() => {
+        setPopup({ type: "", message: "" });
+      }, 3000);
     }
   };
 
   return (
     <div className="login_container">
+      {popup.message && (
+        <div className={popup.type === "success" ? "success" : "error"}>
+          {popup.message}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} autoComplete="off" noValidate>
         <h1>Login to Continue Dribble</h1>
 
@@ -43,11 +62,7 @@ const Login = () => {
           className="login_input"
         />
 
-        {error && (
-          <p className="login_error" style={{ color: "red" }}>
-            {error}
-          </p>
-        )}
+        {error && <p className="login_error">{error}</p>}
 
         <button type="submit" className="login_btn">
           Login
