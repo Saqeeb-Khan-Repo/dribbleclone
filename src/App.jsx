@@ -6,6 +6,7 @@ import Register from "./Components/Auth/Register";
 import Home from "./Components/routes/Home";
 import ProtectedRoute from "./Components/Auth/ProtectedRoute";
 
+
 const Slider = lazy(() => import("./Components/Pages/Slider/Slider"));
 const GetHired = lazy(() => import("./Components/routes/GetHired"));
 const HireTalent = lazy(() => import("./Components/routes/HireTalent"));
@@ -27,11 +28,13 @@ const App = () => {
         <Route
           path="/"
           element={
-            <Layout
-              onHamburgerClick={toggleSidebar}
-              isSidebarOpen={isSidebarOpen}
-              onCloseSidebar={closeSidebar}
-            />
+            <ProtectedRoute>
+              <Layout
+                onHamburgerClick={toggleSidebar}
+                isSidebarOpen={isSidebarOpen}
+                onCloseSidebar={closeSidebar}
+              />
+            </ProtectedRoute>
           }
         >
           <Route
@@ -57,51 +60,41 @@ const App = () => {
           <Route
             path="gethired"
             element={
-              <ProtectedRoute>
-                <Suspense
-                  fallback={<div className="loading">Loading Get Hired...</div>}
-                >
-                  <GetHired />
-                </Suspense>
-              </ProtectedRoute>
+              <Suspense
+                fallback={<div className="loading">Loading Get Hired...</div>}
+              >
+                <GetHired />
+              </Suspense>
             }
           />
           <Route
             path="hiretalent"
             element={
-              <ProtectedRoute>
-                <Suspense
-                  fallback={
-                    <div className="loading">Loading Hire Talent...</div>
-                  }
-                >
-                  <HireTalent />
-                </Suspense>
-              </ProtectedRoute>
+              <Suspense
+                fallback={<div className="loading">Loading Hire Talent...</div>}
+              >
+                <HireTalent />
+              </Suspense>
             }
           />
           <Route
             path="explore"
             element={
-              <ProtectedRoute>
-                <Suspense
-                  fallback={<div className="loading">Loading Explore...</div>}
-                >
-                  <Explore />
-                </Suspense>
-              </ProtectedRoute>
+              <Suspense
+                fallback={<div className="loading">Loading Explore...</div>}
+              >
+                <Explore />
+              </Suspense>
             }
           />
           <Route
             path="community"
             element={
-              <ProtectedRoute>
-                <Suspense
-                  fallback={<div className="loading">Loading Community...</div>}
-                >
-                  <Community />
-                </Suspense>
-              </ProtectedRoute>
+              <Suspense
+                fallback={<div className="loading">Loading Community...</div>}
+              >
+                <Community />
+              </Suspense>
             }
           />
         </Route>

@@ -264,3 +264,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+.success {
+  text-align: center;
+  color: white;
+  background: greenyellow;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+  margin: auto;
+}
