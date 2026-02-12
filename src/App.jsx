@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import Layout from "./Layout";
 
 const App = () => {
   //lazy loading for performane
   const Login = lazy(() => import("./Components/Auth/Login"));
-  const Layout = lazy(() => import("./Layout"));
   const Talent = lazy(() => import("./Components/Pages/Talent/Talent"));
   const Slider = lazy(() => import("./Components/Pages/Slider/Slider"));
   const Register = lazy(() => import("./Components/Auth/Register"));
