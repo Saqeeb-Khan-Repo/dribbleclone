@@ -37,12 +37,6 @@ const Login = () => {
 
   return (
     <div className="login_container">
-      {popup.message && (
-        <div className={popup.type === "success" ? "success" : "error"}>
-          {popup.message}
-        </div>
-      )}
-
       <form onSubmit={handleSubmit} autoComplete="off" noValidate>
         <h1>Login to Continue Dribble</h1>
 
@@ -74,6 +68,11 @@ const Login = () => {
             Register
           </Link>
         </p>
+        {popup.message && (
+          <div className={popup.type === "success" ? "success" : "error"}>
+            {popup.message}
+          </div>
+        )}
       </form>
     </div>
   );
