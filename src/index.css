@@ -1,5 +1,6 @@
 /* Global base */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
@@ -11,7 +12,6 @@ html, body {
   flex-direction: column;
 }
 
-
 /* Login container - centered form */
 .login_container {
   width: 100%;
@@ -21,7 +21,7 @@ html, body {
   align-items: center;
   padding: 24px;
   isolation: isolate;
-  background: linear-gradient(white,pink);
+  background: linear-gradient(white, pink);
 }
 
 /* Form card */
@@ -162,8 +162,7 @@ html, body {
   padding: 6px 16px;
   border: none;
   border-radius: 12px;
-  color: #fff;
-  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #050016;
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
@@ -265,4 +264,3 @@ html, body {
     transition-duration: 0.01ms !important;
   }
 }
-
