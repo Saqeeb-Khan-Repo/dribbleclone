@@ -1,16 +1,5 @@
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 280px;
-  height: 100vh;
-  background: #ffffff;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  transition: left 0.3s ease;
+  display: none;
 }
 
 .sidebar.active {
@@ -18,13 +7,7 @@
 }
 
 .sidebar_overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 900;
+  display: none;
 }
 
 .sidebar_overlay.active {
@@ -164,32 +147,65 @@
 }
 /* Default: desktop/tablet – hidden */
 .sidebar_toggle {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  background: #ffffff;
-  border: none;
-  font-size: 1.8rem;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1100;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
   display: none; /* hide on desktop */
 }
 
 /* Mobile: show hamburger */
 @media (max-width: 768px) {
-  .sidebar_toggle {
-    display: inline-flex;
-    font-size: 0.7rem; /* or block */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    width: 240px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: left 0.3s ease;
   }
 
-  .sidebar {
-    width: 240px;
+  .sidebar.active {
+    left: 0;
+  }
+
+  .sidebar_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+    display: block;
+  }
+
+  .sidebar_overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar_toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: #ffffff;
+    border: none;
+    font-size: 1.6rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .icon {
     height: 32px;
+    width: auto;
   }
 }
