@@ -22,12 +22,6 @@ const Login = () => {
     }
   };
 
-  if (login) {
-    {
-      <h1 className="success">Login Successfull </h1>;
-    }
-  } 
-
   return (
     <div className="login_container">
       <form onSubmit={handleSubmit} autoComplete="off" noValidate>

@@ -4,12 +4,14 @@ import { LuCalendarHeart } from "react-icons/lu";
 import { IoSearchOutline } from "react-icons/io5";
 import { Designs } from "../Custom/WebDesign";
 import { FaStar } from "react-icons/fa"; // npm i react-icons
-import "./Home.css"
-
+import "./Home.css";
+import { useAuth } from "../Auth/AuthContext";
 
 const Home = () => {
+  const { user } = useAuth();
   return (
     <main className="main_container">
+      {user ? <h1 className="success">Login Successfull </h1> : ""}
       <section className="section_head">
         <h1>Discover the World's Top Designers</h1>
         <p>
