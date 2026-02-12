@@ -27,13 +27,11 @@ const App = () => {
         <Route
           path="/"
           element={
-            <ProtectedRoute>
-              <Layout
-                onHamburgerClick={toggleSidebar}
-                isSidebarOpen={isSidebarOpen}
-                onCloseSidebar={closeSidebar}
-              />
-            </ProtectedRoute>
+            <Layout
+              onHamburgerClick={toggleSidebar}
+              isSidebarOpen={isSidebarOpen}
+              onCloseSidebar={closeSidebar}
+            />
           }
         >
           <Route
@@ -59,41 +57,51 @@ const App = () => {
           <Route
             path="gethired"
             element={
-              <Suspense
-                fallback={<div className="loading">Loading Get Hired...</div>}
-              >
-                <GetHired />
-              </Suspense>
+              <ProtectedRoute>
+                <Suspense
+                  fallback={<div className="loading">Loading Get Hired...</div>}
+                >
+                  <GetHired />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
           <Route
             path="hiretalent"
             element={
-              <Suspense
-                fallback={<div className="loading">Loading Hire Talent...</div>}
-              >
-                <HireTalent />
-              </Suspense>
+              <ProtectedRoute>
+                <Suspense
+                  fallback={
+                    <div className="loading">Loading Hire Talent...</div>
+                  }
+                >
+                  <HireTalent />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
           <Route
             path="explore"
             element={
-              <Suspense
-                fallback={<div className="loading">Loading Explore...</div>}
-              >
-                <Explore />
-              </Suspense>
+              <ProtectedRoute>
+                <Suspense
+                  fallback={<div className="loading">Loading Explore...</div>}
+                >
+                  <Explore />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
           <Route
             path="community"
             element={
-              <Suspense
-                fallback={<div className="loading">Loading Community...</div>}
-              >
-                <Community />
-              </Suspense>
+              <ProtectedRoute>
+                <Suspense
+                  fallback={<div className="loading">Loading Community...</div>}
+                >
+                  <Community />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
         </Route>
