@@ -5,11 +5,15 @@ import "./Header.css";
 import { useAuth } from "../../Auth/AuthContext";
 import { Link } from "react-router-dom";
 import { NavLinks } from "../../Custom/DropDown";
-
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ onHamburgerClick }) => {
   const { user, logout } = useAuth();
-
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout(); // clear auth, tokens, etc.
+    navigate("/login", { replace: true });
+  };
   return (
     <header className="header">
       <nav>
@@ -53,7 +57,7 @@ const Header = ({ onHamburgerClick }) => {
           {user ? (
             <>
               <span>Hi, {user.username}</span>
-              <button onClick={logout} className="logout">
+              <button onClick={handleLogout} className="logout">
                 Logout
               </button>
             </>
