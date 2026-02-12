@@ -16,23 +16,21 @@ const App = () => {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
+  // Memoize Layout props to prevent re-renders
+  const layoutProps = {
+    onHamburgerClick: toggleSidebar,
+    isSidebarOpen,
+    onCloseSidebar: closeSidebar,
+  };
+
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <HashRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route
-            path="/"
-            element={
-              <Layout
-                onHamburgerClick={toggleSidebar}
-                isSidebarOpen={isSidebarOpen}
-                onCloseSidebar={closeSidebar}
-              />
-            }
-          >
+          <Route path="/" element={<Layout {...layoutProps} />}>
             <Route index element={<Talent />} /> {/* / shows Home */}
             <Route path="slider" element={<Slider />} />
           </Route>
@@ -40,6 +38,6 @@ const App = () => {
       </HashRouter>
     </Suspense>
   );
-};
+};;
 
 export default App;
