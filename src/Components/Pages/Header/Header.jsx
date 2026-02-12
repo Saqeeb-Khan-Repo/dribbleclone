@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const Header = ({ onHamburgerClick }) => {
   const { user, role, logout } = useAuth();
-  const isAdmin = role === "admin";
 
   return (
     <header className="header">
