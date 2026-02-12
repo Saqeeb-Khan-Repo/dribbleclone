@@ -1,5 +1,6 @@
 import "./Talent.css";
 import { talents } from "../../Custom/Talent";
+import { lazy } from "react";
 
 const Talent = () => {
   return (
@@ -44,6 +45,7 @@ const Talent = () => {
                     className="talent-card__image"
                     src={img}
                     alt={`${item.name} work ${idx + 1}`}
+                    loading={lazy}
                   />
                 ))
               : item.portfolio?.images && (
@@ -51,6 +53,7 @@ const Talent = () => {
                     className="talent-card__image"
                     src={item.portfolio.images}
                     alt={item.name}
+                    loading={lazy}
                   />
                 )}
 
@@ -64,6 +67,7 @@ const Talent = () => {
                   style={{ borderRadius: "10px", width: "100%" }}
                   autoPlay
                   muted
+                  loading={lazy}
                 >
                   <source src={video} type="video/mp4" />
                   Your browser does not support the video tag.
