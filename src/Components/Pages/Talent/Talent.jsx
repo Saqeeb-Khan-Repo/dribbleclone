@@ -1,7 +1,7 @@
-import "./Home.css";
+import "./Talent.css";
 import { talents } from "../../Custom/Talent";
 
-const Home = () => {
+const Talent = () => {
   return (
     <div className="home">
       <div className="talent-list">
@@ -29,6 +29,10 @@ const Home = () => {
               {item.location}
             </p>
             <p>
+              <span className="label skills">Skills: </span>
+              {item?.skills}
+            </p>
+            <p>
               <span className="label">Bio: </span>
               {item.bio}
             </p>
@@ -50,16 +54,22 @@ const Home = () => {
                   />
                 )}
 
-            {item.portfolio?.videos && (
-              <video
-                className="talent-card__video"
-                src={item.portfolio.videos}
-                muted
-                autoPlay
-                loop
-                controls
-              />
-            )}
+            {item.portfolio?.videos?.length > 0 &&
+              item.portfolio.videos.map((video, index) => (
+                <video
+                  key={index}
+                  className="talent-card__video"
+                  controls
+                  preload="metadata"
+                  style={{ borderRadius: "10px", width: "100%" }}
+                  autoPlay
+                  muted
+                >
+                  <source src={video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ))}
+
             <button className="hire_btn">Connect </button>
           </div>
         ))}
@@ -68,4 +78,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Talent;

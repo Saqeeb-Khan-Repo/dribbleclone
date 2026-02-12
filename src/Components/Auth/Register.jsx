@@ -30,13 +30,23 @@ const Register = () => {
 
   return (
     <div className="login_container">
-      <form onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        method="post" // Fake POST confuses manager
+        action="javascript:void(0)" // Prevent real submit
+        noValidate
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
         <h1>Register New User</h1>
         <input
           value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}
           placeholder="Username"
           className="login_input"
+          autoComplete="username"
         />
         <input
           type="password"

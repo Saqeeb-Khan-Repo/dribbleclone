@@ -24,7 +24,7 @@ const Login = () => {
 
   return (
     <div className="login_container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off" noValidate>
         <h1>Login to Continue</h1>
 
         <input
@@ -32,6 +32,7 @@ const Login = () => {
           onChange={(e) => setForm({ ...form, username: e.target.value })}
           placeholder="Username"
           className="login_input"
+          autoComplete="username"
         />
 
         <input

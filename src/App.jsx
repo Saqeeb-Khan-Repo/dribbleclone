@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout"; // New layout
-import Home from "./Components/Pages/Home/Home";
+import Talent from "./Components/Pages/Talent/Talent";
 import Slider from "./Components/Pages/Slider/Slider";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
@@ -29,7 +29,7 @@ const App = () => {
             />
           }
         >
-          <Route index element={<Home />} /> {/* / shows Home */}
+          <Route index element={<Talent />} /> {/* / shows Home */}
           <Route path="slider" element={<Slider />} />
         </Route>
       </Routes>
