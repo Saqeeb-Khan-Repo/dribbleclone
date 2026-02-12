@@ -2,12 +2,13 @@
 import { IoReorderThreeOutline, IoSearchOutline } from "react-icons/io5";
 import Icon from "../../Custom/Icon";
 import "./Header.css";
-import { NAV_CONFIG } from "../../Custom/DropDown";
 import { useAuth } from "../../Auth/AuthContext";
 import { Link } from "react-router-dom";
+import { NavLinks } from "../../Custom/DropDown";
+
 
 const Header = ({ onHamburgerClick }) => {
-  const { user, role, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <header className="header">
@@ -33,21 +34,15 @@ const Header = ({ onHamburgerClick }) => {
 
         {/* Nav dropdowns */}
         <div className="container_a">
-          {NAV_CONFIG.map((nav) => (
-            <div className="nav-item-with-menu" key={nav.label}>
-              <button className="nav-link-with-menu btn">
-                <span>{nav.label}</span>
-                <span className="nav-caret">▾</span>
-              </button>
+          {NavLinks.map((nav) => (
+            <div className="nav-item-with-menu" key={nav}>
               <div className="nav-dropdown">
-                {nav.items.map((item) => (
-                  <Link
-                    to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                    key={item}
-                  >
-                    {item}
-                  </Link>
-                ))}
+                <Link
+                  to={`/${nav.toLowerCase().replace(/\s+/g, "")}`}
+                  className="nav-link"
+                >
+                  {nav}
+                </Link>
               </div>
             </div>
           ))}

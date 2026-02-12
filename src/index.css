@@ -1,20 +1,16 @@
 /* Global base */
-* {
-  box-sizing: border-box;
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    sans-serif;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+#root {
   min-height: 100vh;
-  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
+
 
 /* Login container - centered form */
 .login_container {
@@ -24,7 +20,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 24px;
-  isolation: isolate; /* Contain shadows */
+  isolation: isolate;
+  background: linear-gradient(white,pink);
 }
 
 /* Form card */
@@ -268,3 +265,4 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+

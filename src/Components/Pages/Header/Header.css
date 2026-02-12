@@ -1,80 +1,94 @@
-/* ---------- Base header ---------- */
+/* ===============================
+   HEADER BASE
+================================= */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  z-index: 1000;
 }
 
+/* Add this to your layout wrapper */
 .main-content {
-  padding-top: 88px;
+  padding-top: 90px;
 }
 
-/* Main nav flex container */
+/* ===============================
+   NAV CONTAINER
+================================= */
+
 .header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
-  color: #060318;
+  gap: 20px;
   font-family: "Mona Sans", system-ui, sans-serif;
+  color: #0f172a;
 }
 
-/* Logo */
+/* ===============================
+   LOGO
+================================= */
+
 .a_icon {
   display: flex;
   align-items: center;
-  color: #050016;
   text-decoration: none;
+  color: inherit;
 }
 
 .icon {
   height: 36px;
   width: auto;
-  flex-shrink: 0;
 }
 
-/* Hamburger - hidden desktop */
+/* ===============================
+   HAMBURGER
+================================= */
+
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: #0f172a;
-  padding: 8px;
+  padding: 6px;
   border-radius: 8px;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 .hamburger:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 
-/* ---------- Search ---------- */
+/* ===============================
+   SEARCH BAR
+================================= */
+
 .search_container {
   flex: 1;
   max-width: 520px;
   height: 44px;
-  background: #f8f9fa;
+  background: #f8fafc;
   border-radius: 999px;
   padding: 0 16px 0 20px;
+  display: flex;
+  align-items: center;
   gap: 12px;
   border: 1px solid transparent;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
 }
 
 .search_container:hover {
+  background: #ffffff;
   border-color: #ec4899;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .search_container input {
@@ -84,7 +98,6 @@
   background: transparent;
   font-size: 0.95rem;
   color: #0f172a;
-  padding: 4px 0;
 }
 
 .search_container input::placeholder {
@@ -92,138 +105,85 @@
 }
 
 .search_container span {
+  font-size: 1.3rem;
   color: #ec4899;
-  font-size: 1.2rem;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-/* ---------- Desktop nav links ---------- */
+/* ===============================
+   NAV LINKS (Desktop)
+================================= */
+
 .container_a {
   display: flex;
   align-items: center;
-  gap: 24px;
-  flex-shrink: 0;
+  gap: 28px;
 }
 
 .nav-item-with-menu {
-  position: relative;
-}
-
-.btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px 12px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #0f172a;
   display: flex;
   align-items: center;
-  gap: 4px;
-  border-radius: 8px;
-  transition: all 0.2s;
 }
 
-.btn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: #ec4899;
-}
-
-.nav-caret {
-  font-size: 0.75rem;
-  transition: transform 0.2s;
-}
-
-.nav-item-with-menu:hover .nav-caret {
-  transform: rotate(180deg);
-}
-
-.nav-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 160px;
-  padding: 8px 0;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  z-index: 10;
-}
-
-.nav-item-with-menu:hover .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(8px);
-}
-
-.nav-dropdown a {
-  display: block;
-  padding: 10px 20px;
+.nav-link {
   text-decoration: none;
-  font-size: 0.9rem;
-  color: #374151;
-  white-space: nowrap;
-  transition: background 0.2s;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+  transition: color 0.2s ease;
 }
 
-.nav-dropdown a:hover {
-  background: #f3f4f6;
+.nav-link:hover {
   color: #ec4899;
 }
 
-/* ---------- Auth section ---------- */
+/* ===============================
+   AUTH SECTION
+================================= */
+
 .auth-section {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+  gap: 14px;
 }
 
 .auth-section span {
   font-size: 0.875rem;
   color: #6b7280;
-  white-space: nowrap;
 }
 
-.button_white,
-.logout {
+/* Register button */
+.button_white {
   padding: 8px 18px;
   border-radius: 999px;
   background: transparent;
-  border: 1px solid transparent;
+  border: 1px solid #d1d5db;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   color: #0f172a;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
-.button_white:hover,
-.logout:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: #d1d5db;
+.button_white:hover {
+  background: #f3f4f6;
 }
 
+/* Login button */
 .button {
-  padding: 10px 24px;
+  padding: 9px 22px;
   border-radius: 999px;
   border: none;
-  background: linear-gradient(135deg, #050016 0%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #050016, #1e1b4b);
   color: #fff;
   font-size: 0.875rem;
   font-weight: 500;
-  cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(5, 0, 22, 0.2);
 }
 
@@ -232,49 +192,61 @@
   box-shadow: 0 4px 12px rgba(5, 0, 22, 0.3);
 }
 
-/* ---------- Tablet: ≤ 1024px ---------- */
+/* Logout button */
+.logout {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout:hover {
+  background: #f3f4f6;
+}
+
+/* ===============================
+   TABLET (≤1024px)
+================================= */
+
 @media (max-width: 1024px) {
   .container_a {
-    gap: 16px;
+    gap: 18px;
   }
 
-  .btn {
-    font-size: 0.9rem;
-    padding: 6px 10px;
+  .search_container {
+    max-width: 380px;
   }
 }
 
-/* ---------- Mobile: ≤ 768px (Hamburger LEFT, Auth RIGHT) ---------- */
+/* ===============================
+   MOBILE (≤768px)
+================================= */
+
 @media (max-width: 768px) {
   .header {
-    padding: 14px 20px;
+    padding: 14px 18px;
   }
 
   .header nav {
-    gap: 0; /* Remove gap for edge positioning */
+    gap: 10px;
   }
 
-  /* Hamburger - LEFT START */
+  /* Show hamburger */
   .hamburger {
     display: block;
-    order: 1; /* First position - left */
-    margin-right: auto;
+    order: 1;
   }
 
-  /* Logo */
   .a_icon {
     order: 2;
   }
 
-  .icon {
-    height: 32px;
-  }
-
-  /* Search */
   .search_container {
     order: 3;
-    flex: 1;
-    max-width: 280px;
+    max-width: 220px;
   }
 
   /* Hide desktop nav */
@@ -282,57 +254,36 @@
     display: none;
   }
 
-  /* Auth section - RIGHT END */
   .auth-section {
-    order: 999; /* Last position - right end */
+    order: 4;
     margin-left: auto;
-    gap: 8px;
+    gap: 10px;
   }
 }
 
-/* ---------- Phone: ≤ 480px (Compact) ---------- */
-@media (max-width: 480px) {
-  .header {
-    padding: 12px 16px;
-  }
+/* ===============================
+   SMALL PHONE (≤480px)
+================================= */
 
-  .header nav {
-    gap: 0;
+@media (max-width: 480px) {
+  .search_container {
+    display: none;
   }
 
   .icon {
     height: 28px;
   }
 
-  /* Hide search completely */
-  .search_container {
-    display: none;
-  }
-
-  .hamburger {
-    font-size: 2rem;
-    order: 1;
-  }
-
-  .auth-section {
-    order: 999;
-    gap: 4px;
-  }
-
-  /* Hide extra text */
   .auth-section span {
     display: none;
   }
 
-  /* Hide register button */
   .button_white {
     display: none;
   }
 
-  /* Compact login button */
   .button {
     padding: 6px 14px;
     font-size: 0.8rem;
-    min-width: 68px;
   }
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { loginRequest } from "../api/Auth";
 import { useAuth } from "../Auth/AuthContext";
+import Icon from "../Custom/Icon";
 
 const Login = () => {
   const { login } = useAuth();
@@ -25,7 +26,8 @@ const Login = () => {
   return (
     <div className="login_container">
       <form onSubmit={handleSubmit} autoComplete="off" noValidate>
-        <h1>Login to Continue</h1>
+         
+        <h1>Login to Continue Dribble</h1>
 
         <input
           value={form.username}

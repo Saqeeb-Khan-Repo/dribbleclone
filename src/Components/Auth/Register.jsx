@@ -31,7 +31,7 @@ const Register = () => {
   return (
     <div className="login_container">
       <form autoComplete="off" onSubmit={handleSubmit} noValidate>
-        <h1>Register New User</h1>
+        <h1> New User Register</h1>
         <input
           value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}

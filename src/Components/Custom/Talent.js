@@ -1,10 +1,10 @@
 export const talents = [
   {
     id: 1,
-    name: "Priya Sharma",
+    name: "Angela u",
     role: "React Frontend Developer",
     experience: 4,
-    location: "Bangalore, India",
+    location: "New York City",
     hourlyRate: 35,
     bio: "Frontend developer specializing in React and modern UI systems.",
     skills: ["React", "Next.js", "Tailwind", "TypeScript"],
@@ -21,10 +21,10 @@ export const talents = [
   },
   {
     id: 2,
-    name: "Rahul Patel",
+    name: "Andrew ",
     role: "Node.js Backend Developer",
     experience: 6,
-    location: "Mumbai, India",
+    location: "America",
     hourlyRate: 42,
     bio: "Backend engineer building scalable APIs and cloud systems.",
     skills: ["Node.js", "Express", "MongoDB", "AWS"],

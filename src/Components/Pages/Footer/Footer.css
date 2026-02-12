@@ -7,7 +7,11 @@ footer {
   padding: 32px 16px;
   background: whitesmoke;
   color: black;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   box-shadow: 0 0 50px 2px rgba(128, 128, 128, 0.488);
 }
@@ -52,7 +56,9 @@ footer > ul:first-of-type li {
 
 .footer_social svg {
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.1s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .footer_social svg:hover {
