@@ -15,7 +15,7 @@ const Layout = ({ onHamburgerClick, isSidebarOpen, onCloseSidebar }) => (
         <Outlet /> {/* Renders the matched route component */}
       </main>
     </div>
-    <Slider/>
+    <Slider />
     <Footer />
   </AuthProvider>
 );
