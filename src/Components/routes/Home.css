@@ -305,3 +305,22 @@
     width: 100%;
   }
 }
+
+
+.download {
+  color: white;
+  background: linear-gradient(135deg, #ec4899, #f97316);
+  border:none;
+  border-radius:30px;
+  font-size:1.6rem;
+  cursor: pointer;
+  display:flex;
+  justify-content:center;
+  width: 50px;
+
+
+  &:hover{
+    background: linear-gradient(135deg, #272626, #f97316);
+  }
+
+}

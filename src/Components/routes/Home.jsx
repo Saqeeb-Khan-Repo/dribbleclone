@@ -5,12 +5,23 @@ import { IoSearchOutline } from "react-icons/io5";
 import { Designs } from "../Custom/WebDesign";
 import { FaStar } from "react-icons/fa"; // npm i react-icons
 import "./Home.css";
+import { MdDownloadForOffline } from "react-icons/md";
+import { BASE_URL } from "../api/Auth";
 
 const Home = () => {
+  const handleImageDownload = (imageUrl, filename) => {
+    const apiUrl = `${BASE_URL}/api/download/image?url=${encodeURIComponent(
+      imageUrl,
+    )}&filename=${encodeURIComponent(filename)}`;
 
+    const link = document.createElement("a");
+    link.href = apiUrl;
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-  
-  
   return (
     <main className="main_container">
       <section className="section_head">
@@ -79,6 +90,18 @@ const Home = () => {
                   <span>({item.rating})</span>
                 </div>
                 <div className="price">${item.price}</div>
+                <button
+                  onClick={() =>
+                    handleImageDownload(
+                      item.image,
+                      `${item.title.replace(/\s+/g, "-")}.jpg`,
+                    )
+                  }
+                  className="download"
+                  type="button"
+                >
+                  <MdDownloadForOffline />
+                </button>
               </div>
             </div>
           </div>
