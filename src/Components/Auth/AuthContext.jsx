@@ -10,10 +10,31 @@ export const AuthProvider = ({ children }) => {
     user: null,
     role: null,
   });
+  const [initializing, setInitializing] = useState(true);
 
   useEffect(() => {
     const raw = localStorage.getItem("auth");
-    if (raw) setAuth(JSON.parse(raw));
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+
+        // optional: validate JWT expiry
+        if (parsed.token) {
+          const payload = jwtDecode(parsed.token);
+          const now = Date.now() / 1000;
+          if (payload.exp && payload.exp < now) {
+            localStorage.removeItem("auth");
+            setInitializing(false);
+            return;
+          }
+        }
+
+        setAuth(parsed);
+      } catch {
+        localStorage.removeItem("auth");
+      }
+    }
+    setInitializing(false);
   }, []);
 
   const login = ({ accessKey }) => {
@@ -25,7 +46,7 @@ export const AuthProvider = ({ children }) => {
         id: payload.userID,
         username: payload.username,
       },
-      role: payload.role, // e.g. "admin"
+      role: payload.role,
     };
 
     setAuth(next);
@@ -38,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ ...auth, login, logout }}>
+    <AuthContext.Provider value={{ ...auth, login, logout, initializing }}>
       {children}
     </AuthContext.Provider>
   );

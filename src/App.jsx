@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, lazy, Suspense } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
@@ -5,7 +6,6 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Home from "./Components/routes/Home";
 import ProtectedRoute from "./Components/Auth/ProtectedRoute";
-
 
 const Slider = lazy(() => import("./Components/Pages/Slider/Slider"));
 const GetHired = lazy(() => import("./Components/routes/GetHired"));

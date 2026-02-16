@@ -1,13 +1,18 @@
-import { Navigate, useLocation } from "react-router-dom";
+// Components/Auth/ProtectedRoute.jsx
+import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth();
-  const location = useLocation();
+  const { user, token, initializing } = useAuth();
 
-  // Not authenticated → go to login page
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+  // Wait until AuthContext finishes restoring from localStorage
+  if (initializing) {
+    return <div className="loading">Checking session...</div>;
+  }
+
+  // If no token/user after init, redirect to login
+  if (!token || !user) {
+    return <Navigate to="/login" replace />;
   }
 
   return children;

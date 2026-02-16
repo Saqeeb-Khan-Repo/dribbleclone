@@ -89,3 +89,24 @@
     color: red;
   }
 }
+
+.popup{
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 1200;
+  text-align: center;
+  border-radius: 12px;
+  padding: 2px;
+  max-width: 320px;
+  font-size: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.4s ease-out;
+ color: #e8edea;
+  background: #22c55e;
+  border: none;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: "Times New Roman", Times, serif;
+  width: 40%;
+}
