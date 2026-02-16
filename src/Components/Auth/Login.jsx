@@ -8,7 +8,7 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ username: "", password: "" });
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); // string, not object
   const [popup, setPopup] = useState({ type: "", message: "" });
 
   const handleSubmit = async (e) => {
@@ -17,18 +17,23 @@ const Login = () => {
     setPopup({ type: "", message: "" });
 
     try {
-      const data = await loginRequest(form); // { message, success, accessKey }
+      const data = await loginRequest(form); // { message, success, accessKey, ... }
       login(data); // save token + role in context
 
       setPopup({ type: "success", message: "Login successful!" });
       setTimeout(() => {
         setPopup({ type: "", message: "" });
-        navigate("/"); // redirect to home page
+        navigate("/", { replace: true });
       }, 1500);
     } catch (err) {
-      const msg = err.message || "Login failed. Please try again.";
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Login failed. Please try again.";
+
       setError(msg);
       setPopup({ type: "error", message: msg });
+
       setTimeout(() => {
         setPopup({ type: "", message: "" });
       }, 3000);
@@ -38,7 +43,7 @@ const Login = () => {
   return (
     <div className="login_container">
       <form onSubmit={handleSubmit} autoComplete="off" noValidate>
-        <h1>Login to Continue Dribble</h1>
+        <h1 className="login_title">Login to Continue Dribble</h1>
 
         <input
           value={form.username}
@@ -68,12 +73,13 @@ const Login = () => {
             Register
           </Link>
         </p>
-        {popup.message && (
-          <div className={popup.type === "success" ? "success" : "error"}>
-            {popup.message}
-          </div>
-        )}
       </form>
+
+      {popup.message && (
+        <div className={popup.type === "success" ? "success" : "error"}>
+          {popup.message}
+        </div>
+      )}
     </div>
   );
 };

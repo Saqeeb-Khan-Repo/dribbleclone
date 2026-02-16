@@ -21,7 +21,7 @@ body {
   align-items: center;
   padding: 24px;
   isolation: isolate;
-  background: linear-gradient(white, pink);
+  background: linear-gradient(rgb(41, 40, 40), rgb(64, 95, 196));
 }
 
 /* Form card */
@@ -30,7 +30,7 @@ body {
   max-width: 400px;
   padding: 40px 32px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(rgb(243, 239, 239), rgb(64, 95, 196));
   backdrop-filter: blur(20px);
   border: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow:
@@ -46,7 +46,7 @@ body {
   font-size: clamp(1.3rem, 4vw, 1.5rem);
   font-weight: 700;
   text-align: center;
-  color: #0f172a;
+  color: #0e0f11;
   margin: 0 0 8px;
 }
 
@@ -59,7 +59,7 @@ body {
 
 .login_input {
   padding: 14px 18px;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid #180de2;
   border-radius: 16px;
   background: #f8fafc;
   font-size: 0.95rem;
@@ -70,7 +70,7 @@ body {
 .login_input:focus {
   outline: none;
   border-color: #6366f1;
-  background: #fff;
+  background: #ffffff;
   box-shadow:
     0 0 0 4px rgba(99, 102, 241, 0.1),
     0 4px 12px rgba(99, 102, 241, 0.15);
@@ -87,7 +87,7 @@ body {
   border: none;
   border-radius: 16px;
   background: linear-gradient(135deg, #050016 0%, #1e1b4b 100%);
-  color: #fff;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -112,23 +112,23 @@ body {
 
 /* Error & helper text */
 .login_error {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: #dc2626;
   text-align: center;
-  padding: 8px 0;
 }
 
 .login_register_text {
   text-align: center;
   font-size: 0.9rem;
-  color: #64748b;
+  color: #eaecef;
   margin-top: 8px;
 }
 
 .login_register_link {
-  color: #3b82f6;
+  color: #49ea18;
   font-weight: 600;
   text-decoration: none;
+  margin-left: 0.5rem;
 }
 
 .login_register_link:hover {
@@ -157,25 +157,71 @@ body {
   font-weight: 500;
 }
 
-/* Logout button */
-.logout {
-  padding: 6px 16px;
-  border: none;
+/* Toast notifications */
+.success,
+.error {
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 1200;
+  text-align: center;
   border-radius: 12px;
-  color: #050016;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  padding: 10px 16px;
+  max-width: 320px;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.4s ease-out;
+  width: 40%;
 }
 
-.logout:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+.success {
+  color: #e8edea;
+  background: #22c55e;
+  border: none;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
 }
 
-.logout:active {
-  transform: scale(0.98);
+.error {
+  color: #fef2f2;
+  background: #ef4444;
+  border: 1px solid #fecaca;
+  height: 50px;
+}
+
+/* Toast animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+/* Loading states */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100dvh;
+  color: blue;
 }
 
 /* Responsive */
@@ -215,9 +261,6 @@ body {
 
   .auth-section {
     gap: 6px;
-  }
-
-  .auth-section {
     font-size: 0.6rem;
     font-weight: 400;
     color: grey;
@@ -232,28 +275,16 @@ body {
     font-size: 0.6rem;
     border: 1px solid gray;
     border-radius: 20px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #ffffff;
   }
-}
 
-/* Loading states */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
+  .success,
+  .error {
+    top: 0.5rem;
+    right: 0.5rem;
+    max-width: 90%;
   }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-.loading {
-  animation: pulse 1.5s infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100dvh;
-  color: blue;
 }
 
 /* Accessibility */
@@ -263,33 +294,4 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-.success {
-  text-align: center;
-  color: #14532d;
-  background: #bbf7d0;
-  border: 1px solid #16a34a;
-  border-radius: 12px;
-  padding: 10px 16px;
-  margin: 0 auto 16px;
-  max-width: 320px;
-  font-size: 0.9rem;
-}
-
-.error {
-  text-align: center;
-  color: #7f1d1d;
-  background: #fecaca;
-  border: 1px solid #dc2626;
-  border-radius: 12px;
-  padding: 10px 16px;
-  margin: 0 auto 16px;
-  max-width: 320px;
-  font-size: 0.9rem;
-}
-
-.login_error {
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #b91c1c;
 }

@@ -59,7 +59,7 @@ const Register = () => {
           Register
         </button>
 
-        {msg && <p style={{ color: "green" }}>{msg}</p>}
+        {msg && <p style={{ color: "white" }}>{msg}</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
     </div>

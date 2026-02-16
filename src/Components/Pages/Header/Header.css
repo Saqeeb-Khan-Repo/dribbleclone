@@ -194,17 +194,20 @@
 
 /* Logout button */
 .logout {
-  padding: 8px 18px;
+  padding: 8px;
   border-radius: 999px;
   background: transparent;
   border: 1px solid #d1d5db;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: white;
+  background-color: rgba(237, 36, 36, 0.964);
+  margin-right: 1rem;
 }
 
-.logout:hover {
-  background: #f3f4f6;
+.logout:active {
+  background:red;
 }
 
 /* ===============================
