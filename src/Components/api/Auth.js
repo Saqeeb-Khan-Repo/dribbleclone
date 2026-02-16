@@ -1,5 +1,6 @@
 // api/auth.js
-const BASE_URL = "https://dribblebackend-2ddd.onrender.com"; // change to your backend port
+// const BASE_URL = "https://dribblebackend-2ddd.onrender.com";
+const BASE_URL = "https://dribblebackend-44al.vercel.app";
 
 export async function registerRequest(payload) {
   const res = await fetch(`${BASE_URL}/api/register`, {
