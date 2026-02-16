@@ -7,6 +7,10 @@ import { FaStar } from "react-icons/fa"; // npm i react-icons
 import "./Home.css";
 
 const Home = () => {
+
+
+  
+  
   return (
     <main className="main_container">
       <section className="section_head">
