@@ -2,13 +2,15 @@ import { IoIosImages } from "react-icons/io";
 import { SlPeople } from "react-icons/sl";
 import { LuCalendarHeart } from "react-icons/lu";
 import { IoSearchOutline } from "react-icons/io5";
-import { Designs } from "../Custom/WebDesign";
-import { FaStar } from "react-icons/fa"; // npm i react-icons
+import { FaStar } from "react-icons/fa";
 import "./Home.css";
 import { MdDownloadForOffline } from "react-icons/md";
 import { BASE_URL } from "../api/Auth";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [photos, setPhotos] = useState([]);
+
   const handleImageDownload = (imageUrl, filename) => {
     const apiUrl = `${BASE_URL}/api/download/image?url=${encodeURIComponent(
       imageUrl,
@@ -21,6 +23,27 @@ const Home = () => {
     link.click();
     document.body.removeChild(link);
   };
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const res = await fetch(
+          "https://api.pexels.com/v1/curated?page=1&per_page=24",
+          {
+            headers: {
+              Authorization: import.meta.env.VITE_API_KEY, // your Pexels API key
+            },
+          },
+        );
+        const data = await res.json();
+        setPhotos(data.photos || []);
+      } catch (err) {
+        console.error("Pexels fetch error:", err);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   return (
     <main className="main_container">
@@ -64,37 +87,36 @@ const Home = () => {
       </section>
 
       <section className="webdesign">
-        {Designs.map((item) => (
-          <div key={item.id} className="design-card">
+        {photos.map((photo) => (
+          <div key={photo.id} className="design-card">
             <div className="design-image">
               <img
-                src={item.image}
-                alt={`${item.title} by ${item.author}`}
+                src={photo.src.large}
+                alt={photo.alt || `Photo by ${photo.photographer}`}
                 loading="lazy"
               />
-              <span className="category-badge">{item.category}</span>
+              <span className="category-badge">
+                {photo.photographer || "Pexels"}
+              </span>
             </div>
             <div className="design-info">
-              <h3>{item.title}</h3>
-              <p className="author">by {item.author}</p>
+              <h3>{photo.alt || "Untitled shot"}</h3>
+              <p className="author">by {photo.photographer}</p>
               <div className="rating-price">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => (
-                    <FaStar
-                      key={i}
-                      className={
-                        i < Math.floor(item.rating) ? "filled" : "empty"
-                      }
-                    />
+                    <FaStar key={i} className={i < 4 ? "filled" : "empty"} />
                   ))}
-                  <span>({item.rating})</span>
+                  <span>(4.0)</span>
                 </div>
-                <div className="price">${item.price}</div>
+                <div className="price">Free</div>
                 <button
                   onClick={() =>
                     handleImageDownload(
-                      item.image,
-                      `${item.title.replace(/\s+/g, "-")}.jpg`,
+                      photo.src.original,
+                      `${(photo.alt || "pexels-photo")
+                        .replace(/\s+/g, "-")
+                        .toLowerCase()}.jpg`,
                     )
                   }
                   className="download"
