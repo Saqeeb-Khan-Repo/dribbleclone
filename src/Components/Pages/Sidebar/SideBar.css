@@ -6,7 +6,7 @@
   left: 0;
   width: 300px;
   height: 100dvh;
-  background: #ffffff;
+  background: white;
   transform: translateX(-100%);
   transition: transform 0.25s ease;
   z-index: 3000;
@@ -20,13 +20,14 @@
 .sidebar-close {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
   padding: 12px;
-  background:whitesmoke;
+  background:rgb(244, 242, 242);
   width: 100%;
   color: #111111;
   align-items: flex-end;
+  border-radius: 30px;
 }
 
 /* ---------- Container ---------- */
@@ -74,7 +75,6 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-      background: whitesmoke;
 
 }
 
@@ -107,11 +107,11 @@
  display: flex;
  margin-left: 6px;
  font-size: 1.1rem;
- background-color:whitesmoke;
+ background-color:transparent;
  padding: 10px;
  border-radius: 30px;
 
- &:active{
-  background-color: wheat;
+ &:hover{
+  background-color: whitesmoke;
  }
 }

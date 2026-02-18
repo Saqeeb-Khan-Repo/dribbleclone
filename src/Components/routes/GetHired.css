@@ -3,8 +3,8 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  background: linear-gradient(white,rgba(0, 195, 255, 0.581));
-  height: 80dvh;
+  background: linear-gradient(white,rgba(0, 195, 255, 0.844));
+  height: 90dvh;
 }
 
 .hired_section {

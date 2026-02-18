@@ -6,6 +6,7 @@
   background: linear-gradient(white, rgba(255, 51, 0, 0.411));
   height: 80dvh;
   padding: 0 20px;
+  text-align: center;
 }
 
 .explore_section {
