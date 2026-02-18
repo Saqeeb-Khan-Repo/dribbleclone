@@ -71,6 +71,8 @@ const [connectedTalent, setConnectedTalent] = useState(null);
                     className="talent-card__video"
                     style={{ borderRadius: "10px", width: "100%" }}
                     controls
+                    muted
+                    autoPlay
                   >
                     <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.

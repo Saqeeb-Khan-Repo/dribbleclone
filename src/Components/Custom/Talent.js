@@ -22,7 +22,7 @@ export const talents = [
   {
     id: 2,
     name: "Andrew",
-    role: "Node.js Backend Developer",
+    role: "Full stack Developer",
     experience: 6,
     location: "United States",
     hourlyRate: 42,
