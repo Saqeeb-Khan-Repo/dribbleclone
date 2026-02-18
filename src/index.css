@@ -252,21 +252,21 @@ body {
     display: none;
   }
 }
+
 /* Mobile */
 @media (max-width: 480px) {
   .login_container {
     padding: 16px;
-    height: 100dvh;           /* full visible height */
-    display: flex;
-    justify-content: center;  /* horizontal center */
-    align-items: center;      /* vertical center */
+    height: 100dvh;
   }
 
   .login_container form {
     padding: 30px;
-    margin: 0;                /* remove extra margins */
+    margin: auto;
     border-radius: 20px;
-    max-width: 100%;
+    margin-right: 30px;
+    margin-bottom: auto;
+    margin-top: auto;
   }
 
   .auth-section {
@@ -296,7 +296,6 @@ body {
     max-width: 90%;
   }
 }
-
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {

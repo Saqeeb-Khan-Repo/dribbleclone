@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { registerRequest } from "../api/Auth.js";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -31,7 +32,7 @@ const Register = () => {
   return (
     <div className="login_container">
       <form autoComplete="off" onSubmit={handleSubmit} noValidate>
-        <h1> New User Register</h1>
+        <h1 className="login_title"> New User Register</h1>
         <input
           value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}
@@ -58,7 +59,12 @@ const Register = () => {
         <button type="submit" className="login_btn">
           Register
         </button>
-
+        <p className="login_register_text">
+          Already have an account?
+          <Link to="/login" className="login_register_link">
+            Login
+          </Link>
+        </p>
         {msg && <p style={{ color: "white" }}>{msg}</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
