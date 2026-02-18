@@ -257,7 +257,7 @@ body {
 @media (max-width: 480px) {
   .login_container {
     padding: 16px;
-    min-height: 100vh;
+    height: 96.2dvh;
   }
 
   .login_container form {
